@@ -9,6 +9,7 @@ from sklearn.preprocessing import StandardScaler,minmax_scale
 import pickle
 from sklearn.model_selection import train_test_split
 import numpy as np
+import requests
 
 
 
@@ -19,9 +20,13 @@ st.set_page_config(
     )
 
 
+# StyleURL='https://raw.githubusercontent.com/Salman7292/House-Price-Predication/main/Housingproject/Style.css'
+# with open(StyleURL) as f:
+#     st.markdown(f"<style>{f.read()} </style>", unsafe_allow_html=True)
 
-with open("Style.css") as f:
-    st.markdown(f"<style>{f.read()} </style>", unsafe_allow_html=True)
+StyleURL = 'https://raw.githubusercontent.com/Salman7292/House-Price-Predication/main/Housingproject/Style.css'
+style_response = requests.get(StyleURL)
+st.markdown(f"<style>{style_response.text}</style>", unsafe_allow_html=True)
 
 CleanHousingURL='https://raw.githubusercontent.com/Salman7292/House-Price-Predication/main/Housingproject/CleanHousing.csv'
 USAHousingURL='https://raw.githubusercontent.com/Salman7292/House-Price-Predication/main/Housingproject/USAHousing.csv'
