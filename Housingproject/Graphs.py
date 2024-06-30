@@ -4,9 +4,12 @@ import matplotlib.pyplot as plt
 import streamlit as st
 import pickle
 
-data = pd.read_csv("ScaledusHousing.csv")
+path3='ScaledusHousing.csv'
+path4='CleanHousing.csv'
+
+data = pd.read_csv(path3)
 data.drop(columns='Unnamed: 0', inplace=True)
-Scaled_data1 = pd.read_csv("CleanHousing.csv")
+Scaled_data1 = pd.read_csv(path4)
 Scaled_data1.drop(columns='Unnamed: 0', inplace=True)
 
 def outlier_Detection():
