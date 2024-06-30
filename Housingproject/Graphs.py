@@ -3,7 +3,10 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import streamlit as st
 import pickle
+import requests
+from io import BytesIO
 
+# modelURL='https://github.com/Salman7292/House-Price-Predication/blob/main/Housingproject/LinearRegressionModel'
 CleanHousingURL='https://raw.githubusercontent.com/Salman7292/House-Price-Predication/main/Housingproject/CleanHousing.csv'
 ScaledusHousingURL='https://raw.githubusercontent.com/Salman7292/House-Price-Predication/main/Housingproject/ScaledusHousing.csv'
 data=pd.read_csv(ScaledusHousingURL)
@@ -107,8 +110,9 @@ def predication_by_Model():
     Y=Scaled_data1['Price']
     Y=pd.DataFrame(Y)
     Y.rename(columns={"Price":"Actual Price"},inplace=True)
-    with open("LinearRegressionModel","rb") as file:
-            Linear_Regression_Model1=pickle.load(file)
+    modelURL = 'https://github.com/Salman7292/House-Price-Predication/raw/main/Housingproject/LinearRegressionModel.pkl'
+    response = requests.get(modelURL)
+    Linear_Regression_Model1 = pickle.load(BytesIO(response.content),encoding='latin1')
         
     predication1=Linear_Regression_Model1.predict(X)
     # st.table(predication1)
