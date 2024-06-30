@@ -115,4 +115,4 @@ elif selections == "How Model Predicts":
         - **Model Training**: Using linear regression to find the best fit line.
         - **Price Prediction**: Applying the model to input features to estimate the house price.
     """,unsafe_allow_html=True)
-     Graphs.predication_by_Model()
+    Graphs.predication_by_Model()
