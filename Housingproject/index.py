@@ -24,6 +24,7 @@ st.set_page_config(
 # StyleURL='https://raw.githubusercontent.com/Salman7292/House-Price-Predication/main/Housingproject/Style.css'
 # with open(StyleURL) as f:
 #     st.markdown(f"<style>{f.read()} </style>", unsafe_allow_html=True)
+# modelURL='https://github.com/Salman7292/House-Price-Predication/blob/main/Housingproject/LinearRegressionModel'
 
 StyleURL = 'https://raw.githubusercontent.com/Salman7292/House-Price-Predication/main/Housingproject/Style.css'
 style_response = requests.get(StyleURL)
@@ -191,10 +192,14 @@ elif selections == 'Inserting Data':
 
     
 
-        with open("LinearRegressionModel","rb") as files:
-            Linear_Regression_Model=pickle.load(files)
+        # with open(modelURL,"rb") as files:
+        #     Linear_Regression_Model=pickle.load(files)
+    # Load the model from URL
+        modelURL = 'https://github.com/Salman7292/House-Price-Predication/raw/main/Housingproject/LinearRegressionModel.pkl'
+        response = requests.get(modelURL)
+        Linear_Regression_Model1 = pickle.load(BytesIO(response.content),encoding='latin1')
         
-        predication=Linear_Regression_Model.predict(d1)
+        predication=Linear_Regression_Model1.predict(d1)
         st.subheader(f"House Price Predication : {np.round((predication[0][0])*286.47).astype(int)} PKR ")
         st.balloons()
 
@@ -204,8 +209,12 @@ elif selections == 'Display Predication':
     Y=data1['Price']
     Y=pd.DataFrame(Y)
     Y.rename(columns={"Price":"Actual Price"},inplace=True)
-    with open("LinearRegressionModel","rb") as file:
-            Linear_Regression_Model1=pickle.load(file)
+
+    # Load the model from URL
+    modelURL = 'https://github.com/Salman7292/House-Price-Predication/raw/main/Housingproject/LinearRegressionModel.pkl'
+    response = requests.get(modelURL)
+    Linear_Regression_Model1 = pickle.load(BytesIO(response.content),encoding='latin1')
+    
         
     predication1=Linear_Regression_Model1.predict(X)
     # st.table(predication1)
