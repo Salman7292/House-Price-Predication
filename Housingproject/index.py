@@ -33,8 +33,9 @@ USAHousingURL='https://raw.githubusercontent.com/Salman7292/House-Price-Predicat
 data1 =pd.read_csv(CleanHousingURL)
 data1.drop(columns='Unnamed: 0',inplace=True)
 with st.sidebar:
-    image_path = "2.png"
-    image = Image.open(image_path)
+    image_url = "https://github.com/Salman7292/House-Price-Predication/blob/main/Housingproject/2.png?raw=true"
+    response = requests.get(image_url)
+    image = Image.open(BytesIO(response.content))
 
 
     # Display logo in sidebar
