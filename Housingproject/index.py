@@ -14,11 +14,12 @@ st.set_page_config(
     page_icon="1.jpg",
     page_title="House Price Predictor | App"
 )
-
+path1='CleanHousing.csv'
+path2='USAHousing.csv'
 with open("Style.css") as f:
     st.markdown(f"<style>{f.read()} </style>", unsafe_allow_html=True)
 
-data1 = pd.read_csv("CleanHousing.csv")
+data1 = pd.read_csv(path1)
 data1.drop(columns='Unnamed: 0', inplace=True)
 
 with st.sidebar:
@@ -55,12 +56,12 @@ if selections == "Home":
     """)
 
 elif selections == "Display DataSet":
-    data = pd.read_csv("USAHousing.csv")
+    data = pd.read_csv(path2)
     data.drop(columns='Address', inplace=True)
     st.title("House Dataset")
     st.write("Total Number of Rows and Columns: ", data.shape)
     st.table(data.head(15))
-    data1 = pd.read_csv("CleanHousing.csv")
+    data1 = pd.read_csv(path1)
     data1.drop(columns='Unnamed: 0', inplace=True)
     st.title("After Scaling The Dataset")
     st.subheader("To Better Understand The Model")
