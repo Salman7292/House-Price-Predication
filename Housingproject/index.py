@@ -31,7 +31,7 @@ st.set_page_config(
 
 StyleURL = 'https://raw.githubusercontent.com/Salman7292/House-Price-Predication/main/Housingproject/Style.css'
 style_response = requests.get(StyleURL)
-st.markdown(f"<style>{style_response.text}</style>", unsafe_allow_html=True)
+st.markdown(f"<style>{style_response}</style>", unsafe_allow_html=True)
 
 CleanHousingURL='https://raw.githubusercontent.com/Salman7292/House-Price-Predication/main/Housingproject/CleanHousing.csv'
 USAHousingURL='https://raw.githubusercontent.com/Salman7292/House-Price-Predication/main/Housingproject/USAHousing.csv'
