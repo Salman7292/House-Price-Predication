@@ -25,13 +25,13 @@ st.set_page_config(
 
 
 # StyleURL='https://raw.githubusercontent.com/Salman7292/House-Price-Predication/main/Housingproject/Style.css'
-# with open(StyleURL) as f:
-#     st.markdown(f"<style>{f.read()} </style>", unsafe_allow_html=True)
+with open("Housingproject/Style.css") as f:
+    st.markdown(f"<style>{f.read()} </style>", unsafe_allow_html=True)
 # modelURL='https://github.com/Salman7292/House-Price-Predication/blob/main/Housingproject/LinearRegressionModel'
 
-StyleURL = 'https://raw.githubusercontent.com/Salman7292/House-Price-Predication/main/Housingproject/Style.css'
-style_response = requests.get(StyleURL)
-st.markdown(f"<style>{style_response}</style>", unsafe_allow_html=True)
+# StyleURL = 'https://raw.githubusercontent.com/Salman7292/House-Price-Predication/main/Housingproject/Style.css'
+# style_response = requests.get(StyleURL)
+# st.markdown(f"<style>{style_response}</style>", unsafe_allow_html=True)
 
 CleanHousingURL='https://raw.githubusercontent.com/Salman7292/House-Price-Predication/main/Housingproject/CleanHousing.csv'
 USAHousingURL='https://raw.githubusercontent.com/Salman7292/House-Price-Predication/main/Housingproject/USAHousing.csv'
@@ -246,79 +246,79 @@ elif  selections == 'How Model Perdict':
 
 
 
-# Define your CSS styles
-custom_css = """
-<style>
-.st-emotion-cache-13ln4jf {
-    width: 100%;
-    padding: 6rem 1rem 10rem;
-    max-width: 68rem;
-}
+# # Define your CSS styles
+# custom_css = """
+# <style>
+# .st-emotion-cache-13ln4jf {
+#     width: 100%;
+#     padding: 6rem 1rem 10rem;
+#     max-width: 68rem;
+# }
 
-.st-emotion-cache-a51556 {
-    border-bottom: 1px solid rgba(49, 51, 63, 0.1);
-    border-right: 1px solid rgba(49, 51, 63, 0.1);
-    vertical-align: middle;
-    padding: 0.25rem 0.375rem;
-    font-weight: 600;
-    color: rgba(49, 51, 63, 0.6);
-    font-size: 13px;
-    color: #000;
-    background: #dee2e6;
-    box-shadow: 2px 2px 7px -2px rgba(36, 2, 2, 0.75);
-}
+# .st-emotion-cache-a51556 {
+#     border-bottom: 1px solid rgba(49, 51, 63, 0.1);
+#     border-right: 1px solid rgba(49, 51, 63, 0.1);
+#     vertical-align: middle;
+#     padding: 0.25rem 0.375rem;
+#     font-weight: 600;
+#     color: rgba(49, 51, 63, 0.6);
+#     font-size: 13px;
+#     color: #000;
+#     background: #dee2e6;
+#     box-shadow: 2px 2px 7px -2px rgba(36, 2, 2, 0.75);
+# }
 
-.st-emotion-cache-dvne4q {
-    padding: 6rem 1.5rem;
-    background: #091118fa;
-}
+# .st-emotion-cache-dvne4q {
+#     padding: 6rem 1.5rem;
+#     background: #091118fa;
+# }
 
-.st-emotion-cache-1pbsqtx {
-    color: white;
-}
+# .st-emotion-cache-1pbsqtx {
+#     color: white;
+# }
 
-.st-emotion-cache-10zg0a4 {
-    position: fixed;
-    top: 0.5rem;
-    left: 0.25rem;
-    z-index: 999990;
-    transition: left 300ms ease 0s;
-    border-radius: 10px;
-    background: black;
-}
+# .st-emotion-cache-10zg0a4 {
+#     position: fixed;
+#     top: 0.5rem;
+#     left: 0.25rem;
+#     z-index: 999990;
+#     transition: left 300ms ease 0s;
+#     border-radius: 10px;
+#     background: black;
+# }
 
-.st-emotion-cache-1ec096l {
-    font-size: 1rem;
-    font-family: "Source Sans Pro", sans-serif;
-    padding: 0.25rem 0.375rem;
-    line-height: 1.5;
-    overflow: overlay;
-    box-shadow: 4px 4px 7px -2px rgba(36, 2, 2, 0.75);
-}
+# .st-emotion-cache-1ec096l {
+#     font-size: 1rem;
+#     font-family: "Source Sans Pro", sans-serif;
+#     padding: 0.25rem 0.375rem;
+#     line-height: 1.5;
+#     overflow: overlay;
+#     box-shadow: 4px 4px 7px -2px rgba(36, 2, 2, 0.75);
+# }
 
-.st-emotion-cache-r421ms {
-    background: rgb(185, 228, 221);
-    border: 1px solid rgba(49, 51, 63, 0.2);
-    border-radius: 0.5rem;
-    padding: calc(1em - 1px);
-    box-shadow: 2px 2px 7px -2px rgba(36, 2, 2, 0.75);
-}
+# .st-emotion-cache-r421ms {
+#     background: rgb(185, 228, 221);
+#     border: 1px solid rgba(49, 51, 63, 0.2);
+#     border-radius: 0.5rem;
+#     padding: calc(1em - 1px);
+#     box-shadow: 2px 2px 7px -2px rgba(36, 2, 2, 0.75);
+# }
 
-.st-emotion-cache-7ym5gk {
-    border-radius: 3.5rem;
-    user-select: none;
-    background-color: #ffc10796;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-}
+# .st-emotion-cache-7ym5gk {
+#     border-radius: 3.5rem;
+#     user-select: none;
+#     background-color: #ffc10796;
+#     border: 1px solid rgba(0, 0, 0, 0.125);
+# }
 
-.st-emotion-cache-13ln4jf {
-    padding: 1rem 1rem 3rem;
-}
-</style>
-"""
+# .st-emotion-cache-13ln4jf {
+#     padding: 1rem 1rem 3rem;
+# }
+# </style>
+# """
 
-# Use st.markdown to inject the CSS styles
-st.markdown(custom_css, unsafe_allow_html=True)
+# # Use st.markdown to inject the CSS styles
+# st.markdown(custom_css, unsafe_allow_html=True)
 
     
 
